@@ -2,6 +2,10 @@
 ## How it works
 This is a program that pretends to be ``java.exe`` and switches dynamically between native [ARM64 Windows Microsoft Build of OpenJDK 25.0.1-8](https://learn.microsoft.com/en-us/java/openjdk/) and non-native built-in JRE that ships with Hytale for highest in-game performance while still letting the game run without crashing.
 <img width="1382" height="389" alt="image" src="https://github.com/user-attachments/assets/9a588920-fbc3-476d-89ce-8eeaea0ec181" />
+
+## Why is it necessary to dynamically switch between the two Java builds?
+``HytaleClient.exe`` runs perfectly on ARM Windows OpenJDK builds while ``HytaleServer.exe`` doesn't and crashes immediately, meaning that you need to be able to detect which is needed when and run the appropriate Java build.
+
 ## Example of the modified filetree
 ```
 C:\Users\USERNAME\AppData\Roaming\Hytale\install\release\package
@@ -26,9 +30,11 @@ C:\Users\USERNAME\AppData\Roaming\Hytale\install\release\package
 ````
 ## How to install and use
 Script and instructions for installation coming soon
+
 ## How to build
 ```
 g++ fakejava.cpp -o java.exe
 ```
+
 ## Credits
 This is only possible thanks to the [ARM64 Windows Build of OpenJDK 25.0.1-8 by Microsoft](https://learn.microsoft.com/en-us/java/openjdk/)
