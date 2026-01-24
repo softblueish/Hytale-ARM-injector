@@ -43,3 +43,6 @@ You can get the [exact build of OpenJDK 25.0.1-8 here](https://learn.microsoft.c
 
 ## Credits
 This is only possible thanks to the [ARM64 Windows Build of OpenJDK 25.0.1-8 by Microsoft](https://learn.microsoft.com/en-us/java/openjdk/)
+
+## Notice
+To anyone who tries to attempt to create a ``netty_quiche42_aarch_64.dll`` to try to make the game run 100% natively, first things first I commend you, but let me warn you: **I've spent several days straight now on this issue**, check the [concept](github.com/softblueish/Hytale-ARM-patch/tree/concept) branch to see some of my failed attempts. What I've found is that [Netty 4.2](https://github.com/netty/netty/tree/4.2) requires OpenJDK 8, a version of OpenJDK never released for Windows on ARM. Supposedly you can compile your own OpenJDK 8 binaries for Windows on ARM, but I don't know if I'm willing to put any more time on this endeavour - but if you try do please message me on discord (@softblueish) since I am also quite interested in trying to get this game to run fully natively.
