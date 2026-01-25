@@ -6,7 +6,15 @@ int main(int argc, char* argv[]) {
     std::string username = getenv("USERNAME");
     std::string command = "C:\\Users\\" + username + "\\AppData\\Roaming\\Hytale\\install\\release\\package\\jre-native\\latest\\bin\\java.exe";
     for (int i = 1; i < argc; ++i) {
+
+        // Remove HytaleServer.jar crashing issue (the client-pid argument is a bitch)
+        if(std::string(argv[i]) == "--client-pid"){
+            i++;
+            continue;
+        }
+
         command += " ";
+
         if(command.substr(0, 2) == "C:") {
             command += "\"";
             command += argv[i];
@@ -18,6 +26,7 @@ int main(int argc, char* argv[]) {
 
     if(command.find("HytaleServer.jar") != std::string::npos) {
         std::cout << "[ARM64 OPENJDK PATCH] Detected HytaleServer.jar, falling to non-native (x86-64) JRE." << std::endl;
+
         size_t pos = command.find("jre-native");
         if (pos != std::string::npos) {
             command.replace(pos, std::string("jre-native").length(), "jre-non-native");
