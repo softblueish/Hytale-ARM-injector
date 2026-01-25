@@ -41,8 +41,11 @@ g++ installer.cpp -o installer.exe
 ```
 You can get the [exact build of OpenJDK 25.0.1-8 here](https://learn.microsoft.com/en-us/java/openjdk/download#:~:text=OpenJDK%2025%2E0%2E1%20LTS)
 
+## ... if you're already reading this far down
+For those masochistic enough, please check out my [WSL-based branch of this patch](https://github.com/softblueish/Hytale-ARM-patch/blob/wsl/), it is a version of this patch that runs better, faster and with 0 crashes. Although it takes a lot more setup and know-how.
+
+## ... also quick warning for anyone it may concern
+To anyone who attempts to create a ``netty_quiche42_aarch_64.dll`` to try to make the game run 100% natively on Windows ARM without WSL, first things first I commend you, but let me warn you: **I've spent several days straight now on this issue**, check the [concept](github.com/softblueish/Hytale-ARM-patch/tree/concept) branch to see some of my failed attempts. What I've found is that [Netty 4.2](https://github.com/netty/netty/tree/4.2) depends on libraries that are REALLY REALLY ancient (some made before Windows ARM really was a thing) and it's just plain awful to deal with.
+
 ## Credits
 This is only possible thanks to the [ARM64 Windows Build of OpenJDK 25.0.1-8 by Microsoft](https://learn.microsoft.com/en-us/java/openjdk/)
-
-## Notice
-To anyone who attempts to create a ``netty_quiche42_aarch_64.dll`` to try to make the game run 100% natively, first things first I commend you, but let me warn you: **I've spent several days straight now on this issue**, check the [concept](github.com/softblueish/Hytale-ARM-patch/tree/concept) branch to see some of my failed attempts. What I've found is that [Netty 4.2](https://github.com/netty/netty/tree/4.2) depends on libraries that are REALLY REALLY ancient (some made before Windows ARM really was a thing) and it's just plain awful to deal with.
