@@ -44,8 +44,12 @@ int main(int argc, char* argv[]) {
 
         // Joins the arguments back into a single command that can be ran
         std::string arguments = "";
-        for (const auto& arg : args) {
-            arguments += " " + arg;
+        for (int i = 0; i < args.size(); i++) {
+            if(args[i] == "\"--client-pid\""){
+                i++;
+                continue;
+            }
+            arguments += " " + args[i];
         }
 
         // Replace localhost with the loopback IP address which can be accessed from the Host
