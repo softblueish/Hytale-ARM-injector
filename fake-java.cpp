@@ -6,13 +6,6 @@ int main(int argc, char* argv[]) {
     std::string username = getenv("USERNAME");
     std::string command = "C:\\Users\\" + username + "\\AppData\\Roaming\\Hytale\\install\\release\\package\\jre-native\\latest\\bin\\java.exe";
     for (int i = 1; i < argc; ++i) {
-
-        // Remove HytaleServer.jar crashing issue (the client-pid argument is a bitch)
-        if(std::string(argv[i]) == "--client-pid"){
-            i++;
-            continue;
-        }
-
         command += " ";
 
         if(command.substr(0, 2) == "C:") {
@@ -40,4 +33,5 @@ int main(int argc, char* argv[]) {
     
     system(command.c_str());
     return 0;
+
 }
